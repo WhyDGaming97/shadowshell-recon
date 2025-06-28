@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ShadowShell Dashboard</title>
+  <meta http-equiv="refresh" content="30">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <style>
+    body {
+      background-color: #0f0f0f;
+      color: #0ff;
+      font-family: monospace;
+      text-align: center;
+      padding: 2em;
+      overflow-x: hidden;
+    }
+    h1 {
+      font-size: 2em;
+      text-shadow: 0 0 10px #0ff;
+    }
+    .typed-text {
+      color: #ff00ff;
+      font-size: 1.2em;
+      text-shadow: 0 0 5px #ff00ff;
+    }
+    .card-container {
+      display: flex;
+      justify-content: center;
+      gap: 2em;
+      margin-top: 2em;
+      flex-wrap: wrap;
+    }
+    .card {
+      width: 300px;
+      height: 300px;
+      perspective: 1000px;
+    }
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 1s;
+      transform-style: preserve-3d;
+    }
+    .card:hover .card-inner {
+      transform: rotateY(180deg);
+    }
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      background-color: #1f1f1f;
+      border: 2px solid #0ff;
+      box-shadow: 0 0 20px #0ff;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1em;
+    }
+    .card-back {
+      transform: rotateY(180deg);
+      color: #fff;
+    }
+    canvas {
+      max-width: 280px;
+      max-height: 280px;
+    }
+  </style>
+</head>
+<body>
+  <h1>💻 ShadowShell Recon Dashboard</h1>
+  <p><b>Last updated:</b> 2025-06-28 17:22:37</p>
+  <div class="typed-text">
+    <span id="typed"></span>
+  </div>
+
+  <div class="card-container">
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <canvas id="barChart"></canvas>
+        </div>
+        <div class="card-back">
+          <p>📊 Bar Chart: Data open port & keyword dari TOR</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <canvas id="pieChart"></canvas>
+        </div>
+        <div class="card-back">
+          <p>🧠 Pie Chart: Distribusi kata kunci dari hasil recon</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    new Typed("#typed", {
+      strings: [
+        "Analyzing TOR Recon...",
+        "Sniper Inject Active...",
+        "Realtime Surveillance Running...",
+        "ShadowShell Dashboard Ready"
+      ],
+      typeSpeed: 50,
+      backSpeed: 25,
+      loop: true
+    });
+
+    const barCtx = document.getElementById('barChart').getContext('2d');
+    new Chart(barCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Open Ports', 'Keywords Detected'],
+        datasets: [{
+          label: 'Recon Summary',
+          data: [3, 5],
+          backgroundColor: ['#4caf50', '#f44336']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false }
+        },
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
+    });
+
+    const pieCtx = document.getElementById('pieChart').getContext('2d');
+    new Chart(pieCtx, {
+      type: 'pie',
+      data: {
+        labels: ['admin', 'password', 'login', 'root', 'secret'],
+        datasets: [{
+          data: [2, 1, 3, 0, 1],
+          backgroundColor: ['#ff6384', '#36a2eb', '#ffcd56', '#4bc0c0', '#9966ff']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          title: {
+            display: true,
+            text: 'Keyword Breakdown'
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
