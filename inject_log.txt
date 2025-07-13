@@ -46,3 +46,14 @@ Status: 200
   "url": "http://httpbin.org/get"
 }
 
+
+[2025-07-13 13:40:54.018043] http://httpbin.org:443/post
+Status: 400
+<html>
+<head><title>400 The plain HTTP request was sent to HTTPS port</title></head>
+<body>
+<center><h1>400 Bad Request</h1></center>
+<center>The plain HTTP request was sent to HTTPS port</center>
+</body>
+</html>
+
