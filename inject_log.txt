@@ -14,3 +14,19 @@ Status: 200
   "url": "http://httpbin.org/get"
 }
 
+
+[2025-07-13 12:02:48.794820] http://httpbin.org:80/get
+Status: 200
+{
+  "args": {}, 
+  "headers": {
+    "Accept": "*/*", 
+    "Accept-Encoding": "gzip, deflate", 
+    "Host": "httpbin.org", 
+    "User-Agent": "python-requests/2.32.4", 
+    "X-Amzn-Trace-Id": "Root=1-68738447-10520cd32a3fc849515a0270"
+  }, 
+  "origin": "88.132.235.115", 
+  "url": "http://httpbin.org/get"
+}
+
