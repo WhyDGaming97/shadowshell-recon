@@ -1,5 +1,5 @@
 [+] Target: openai.com
-[+] Time  : 2025-07-13 11:20:49
+[+] Time  : 2025-07-13 11:25:53
 [+] Open ports: 80, 443
 [+] Server: nginx/1.18.0
 [+] SSL: Valid
